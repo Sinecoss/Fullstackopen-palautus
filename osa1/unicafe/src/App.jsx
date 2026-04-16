@@ -1,12 +1,18 @@
 import { useState } from 'react'
 
 const Display = ({ good, neutral, bad }) => {
+
+  let total = good + neutral + bad
+
   return (
     <div>
       <h2>statistics</h2>
       <div>good {good}</div>
       <div>neutral {neutral}</div>
       <div>bad {bad}</div>
+      <div>all {total}</div>
+      <div>average {((good * 1 + (-1) * bad) / total )}</div>
+      <div>positive {((good) / total) * 100} %</div>
     </div>
   )
 }
