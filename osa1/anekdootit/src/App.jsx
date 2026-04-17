@@ -32,7 +32,6 @@ const App = () => {
 
   const nextNumber = () => {
     let randomNum = Math.floor(Math.random() * anecdotes.length)
-    console.log(randomNum)
     return setSelected(randomNum)
   }
 
