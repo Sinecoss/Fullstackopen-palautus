@@ -1,18 +1,19 @@
 import { useState } from 'react'
 
-const Display = ({ text, vote}) => {
+const Display = ({ text, vote, header}) => {
   return (
-    <>
-      {text} has {vote} votes
-    </>
+    <div>
+      <h1>{header}</h1>
+      <> {text} has {vote} votes</>
+    </div>
   )
 }
 
 const Button = ({ onClick, text }) => {
   return (
-    <div>
+    <>
       <button onClick={onClick}>{text}</button>
-    </div>
+    </>
   )
 }
 
@@ -44,9 +45,10 @@ const App = () => {
 
   return (
     <div>
-      <Display text={anecdotes[selected]} vote={votes[selected]}/>
+      <Display text={anecdotes[selected]} vote={votes[selected]} header='Anecdote of the day'/>
       <Button onClick={voting} text='vote' />
       <Button onClick={nextNumber} text='next anecdote' />
+      <Display text={anecdotes[votes.indexOf(Math.max(...votes))]} vote={Math.max(...votes)} header='Anecdote with most votes'/>
     </div>
   )
 }
